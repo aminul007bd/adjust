@@ -10,22 +10,66 @@ describe(`prepareData`, () => {
 
 describe(`renderData`, () => {
   it(`renders the output correctly`, () => {
-    const example = [{
-      foo: 2,
-      bar: "baz"
-    }];
+    const example = [
+      {
+        "flight_number": 62,
+        "mission_name": "Iridium NEXT Mission 6",
+        "payloads_count": 2
+      },
+      {
+        "flight_number": 72,
+        "mission_name": "CRS-16",
+        "payloads_count": 1
+      },
+      {
+        "flight_number": 64,
+        "mission_name": "CRS-15",
+        "payloads_count": 1
+      },
+      {
+        "flight_number": 60,
+        "mission_name": "TESS",
+        "payloads_count": 1
+      },
+      {
+        "flight_number": 59,
+        "mission_name": "CRS-14",
+        "payloads_count": 1
+      }
+    ];
 
     const expected = [
       `[`,
       `  {`,
-      `    "foo": 2,`,
-      `    "bar": "baz"`,
+      `    "flight_number": 62,`,
+      `    "mission_name": "Iridium NEXT Mission 6",`,
+      `    "payloads_count": 2`,
+      `  },`,
+      `  {`,
+      `    "flight_number": 72,`,
+      `    "mission_name": "CRS-16",`,
+      `    "payloads_count": 1`,
+      `  },`,
+      `  {`,
+      `    "flight_number": 64,`,
+      `    "mission_name": "CRS-15",`,
+      `    "payloads_count": 1`,
+      `  },`,
+      `  {`,
+      `    "flight_number": 60,`,
+      `    "mission_name": "TESS",`,
+      `    "payloads_count": 1`,
+      `  },`,
+      `  {`,
+      `    "flight_number": 59,`,
+      `    "mission_name": "CRS-14",`,
+      `    "payloads_count": 1`,
       `  }`,
       `]`
     ].join("\n");
 
     document.body.innerHTML = `<pre id="out"></pre>`;
-    renderData(example);
+    renderData();
     expect(document.getElementById("out").innerHTML).toEqual(expected);
   });
 });
